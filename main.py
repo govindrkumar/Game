@@ -25,7 +25,7 @@ pygame.display.set_caption("FEED DOG")
 space_image_path = resource_path("assets/space.jpeg")
 background = pygame.transform.scale(pygame.image.load(space_image_path), (WIDTH, HEIGHT))
 
-dog_image_path = os.path.join("assets/happy-dog.webp")
+dog_image_path = resource_path("assets/happy-dog.webp")
 dog_image = pygame.transform.scale(
     pygame.image.load(dog_image_path),(80,80)
 )
@@ -41,7 +41,7 @@ dog_y = 100
 # Cookie EATING---
 ##########
 
-cookie_image_path = os.path.join("assets/dog-cookie.png")
+cookie_image_path = resource_path("assets/dog-cookie.png")
 cookie = pygame.transform.scale(
     pygame.image.load(cookie_image_path),(40,40)
 )
@@ -54,7 +54,7 @@ score = 0
 font = pygame.font.Font(None, 30)
 pygame.mixer.init() #initialised sound system
 eat_sound = pygame.mixer.Sound(
-    os.path.join("assets/eat_dog.mp3")
+    resource_path("assets/eat_dog.mp3")
 )
 
 ## game run logic
