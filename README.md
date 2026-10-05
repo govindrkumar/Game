@@ -16,6 +16,7 @@ I created this very simple game by learning pygame today from google. (Before th
 
 ## how to run game ?
 Everyone head over to : https://github.com/govindrkumar/Game/releases/tag/0.0.1
+
 Download game build for your os, and Enjoy the HI (Human Intelligence) slop content.
 
 ## Contribution
