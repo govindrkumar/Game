@@ -15,13 +15,8 @@ I created this very simple game by learning pygame today from google. (Before th
 4. added sound using `pygame.mixer`
 
 ## how to run game ?
-1. For Linux
-```bash
-    git clone https://github.com/govindrkumar/GAME`
-    cd GAME
-    ./dist/main
-```
-2. For Windows a exe has been provided...
+Everyone head over to : https://github.com/govindrkumar/Game/releases/tag/0.0.1
+Download game build for your os, and Enjoy the HI (Human Intelligence) slop content.
 
 ## Contribution
 ??
