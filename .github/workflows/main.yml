@@ -39,27 +39,30 @@ jobs:
   ubuntu:
     runs-on: ubuntu-latest
 
+    container:
+      image: ubuntu:22.04
+
     steps:
+      - name: Install system packages
+        run: |
+          apt-get update
+          apt-get install -y python3 python3-pip
+
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
       - name: Install dependencies
         run: |
-          pip install pygame pyinstaller
+          pip3 install pygame pyinstaller
 
       - name: Build
         run: |
           pyinstaller --windowed --onefile --add-data "assets:assets" --name FEED_DOG main.py
 
-      - name: Upload Ubuntu build
+      - name: Upload Linux build
         uses: actions/upload-artifact@v4
         with:
-          name: FEED-DOG-Ubuntu
+          name: FEED-DOG-Linux
           path: dist/FEED_DOG
 
 
