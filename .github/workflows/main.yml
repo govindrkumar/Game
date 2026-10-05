@@ -1,0 +1,91 @@
+name: Build FEED DOG
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+
+  # 🪟 Windows
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pygame pyinstaller
+
+      - name: Build
+        run: |
+          pyinstaller --windowed --onefile --add-data "assets;assets" --name FEED_DOG main.py
+
+      - name: Upload Windows build
+        uses: actions/upload-artifact@v4
+        with:
+          name: FEED-DOG-Windows
+          path: dist/FEED_DOG.exe
+
+
+  # 🐧 Ubuntu
+  ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pygame pyinstaller
+
+      - name: Build
+        run: |
+          pyinstaller --windowed --onefile --add-data "assets:assets" --name FEED_DOG main.py
+
+      - name: Upload Ubuntu build
+        uses: actions/upload-artifact@v4
+        with:
+          name: FEED-DOG-Ubuntu
+          path: dist/FEED_DOG
+
+
+  # 🍎 macOS
+  macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pygame pyinstaller
+
+      - name: Build
+        run: |
+          pyinstaller --windowed --onefile --add-data "assets:assets" --name FEED_DOG main.py
+
+      - name: Upload macOS build
+        uses: actions/upload-artifact@v4
+        with:
+          name: FEED-DOG-macOS
+          path: dist/FEED_DOG
